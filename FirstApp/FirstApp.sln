@@ -5,9 +5,13 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp.ConsoleApp", "FirstApp.ConsoleApp\FirstApp.ConsoleApp.csproj", "{59AEA559-ECBC-43F6-9865-70C531F8712B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp.ConsoleHelper", "ConsoleHelper\FirstApp.ConsoleHelper.csproj", "{E8A88BE9-DCD0-47A4-9E02-6C05B0E36234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp.ConsoleHelper_70", "ConsoleHelper\FirstApp.ConsoleHelper_70.csproj", "{E8A88BE9-DCD0-47A4-9E02-6C05B0E36234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPresentation", "MyPresentation\MyPresentation.csproj", "{AB7FB5F3-2B35-4EE9-A991-E887BFC86667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPresentation", "MyPresentation\MyPresentation.csproj", "{AB7FB5F3-2B35-4EE9-A991-E887BFC86667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "m4_5_Practice", "4.5_Practice\m4_5_Practice.csproj", "{82AF1255-6611-452A-8FB9-A5BD458F0555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHelper_50", "ConsoleHelper_50\ConsoleHelper_50.csproj", "{FD21BE16-68A5-4F92-8B6B-B3ADAC1C8F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{AB7FB5F3-2B35-4EE9-A991-E887BFC86667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB7FB5F3-2B35-4EE9-A991-E887BFC86667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB7FB5F3-2B35-4EE9-A991-E887BFC86667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82AF1255-6611-452A-8FB9-A5BD458F0555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82AF1255-6611-452A-8FB9-A5BD458F0555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82AF1255-6611-452A-8FB9-A5BD458F0555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82AF1255-6611-452A-8FB9-A5BD458F0555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD21BE16-68A5-4F92-8B6B-B3ADAC1C8F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD21BE16-68A5-4F92-8B6B-B3ADAC1C8F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD21BE16-68A5-4F92-8B6B-B3ADAC1C8F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD21BE16-68A5-4F92-8B6B-B3ADAC1C8F11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
