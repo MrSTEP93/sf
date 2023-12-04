@@ -12,6 +12,16 @@ namespace ConsoleHelper_50
         {
             Console.WriteLine("I helping you");
         }
+        public static void Write(string s)
+        {
+            Console.Write(s);
+        }
+        public static void Write(string s, ConsoleColor textColor)
+        {
+            Console.ForegroundColor = textColor;
+            Console.Write(s);
+            Console.ResetColor();
+        }
         public static void WriteLn(string s)
         {
             Console.WriteLine(s);

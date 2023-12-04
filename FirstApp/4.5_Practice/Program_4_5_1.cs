@@ -29,6 +29,13 @@ namespace m4_5_Practice
             }
 
             WriteLn("Form completed successfuly, congratulations! Thank you!", ConsoleColor.DarkGreen);
+            ChangeAge(ref User.Age);
+            WriteLn(User.Age.ToString());
+        }
+        static void ChangeAge (ref double age)
+        {
+            WriteLn("Type your new age: ", true);
+            age = double.Parse(ReadLn());
         }
     }
 }
