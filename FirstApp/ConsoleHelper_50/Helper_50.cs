@@ -13,20 +13,37 @@ namespace ConsoleHelper_50
         {
             Console.WriteLine("I helping you");
         }
+        /// <summary>
+        /// Просто метод для вывода на консоль с более коротким именем
+        /// </summary>
+        /// <param name="s"></param>
         public static void Write(string s)
         {
             Console.Write(s);
         }
+        /// <summary>
+        /// Тоже самое, но данная перегрузка принимает цвет текста и сбрасывает его после вывода
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="textColor"></param>
         public static void Write(string s, ConsoleColor textColor)
         {
             Console.ForegroundColor = textColor;
             Console.Write(s);
             Console.ResetColor();
         }
+        /// <summary>
+        /// Просто метод для вывода на консоль с более коротким именем
+        /// </summary>
+        /// <param name="s"></param>
         public static void WriteLn(string s)
         {
             Console.WriteLine(s);
         }
+        /// <summary>
+        /// Метод выводит текст в консоль и предлагает пользователю ввести данные в новой строке
+        /// </summary>
+        /// <param name="s"></param>
         public static void WriteLn(string s, bool prompt)
         {
             WriteLn(s);
@@ -35,13 +52,21 @@ namespace ConsoleHelper_50
                 Console.Write(">> ");
             }
         }
+        /// <summary>
+        /// Вывод в консоль, но данная перегрузка принимает цвет текста и сбрасывает его после вывода
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="textColor"></param>
         public static void WriteLn(string s, ConsoleColor textColor)
         {
             Console.ForegroundColor = textColor;
             WriteLn(s);
             Console.ResetColor();
         }
-
+        /// <summary>
+        /// Чтение строки из консоли
+        /// </summary>
+        /// <returns></returns>
         public static string? ReadLn()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -49,6 +74,11 @@ namespace ConsoleHelper_50
             Console.ResetColor();
             return s;
         }
+        /// <summary>
+        /// Метод задает пользователю вопрос и распознает ответ да/нет
+        /// </summary>
+        /// <param name="question"></param>
+        /// <param name="value"></param>
         public static void TryFillYesOrNo(string question, out bool value)
         {
             var positiveReplies = new string[] { "yes", "да", "true" };
