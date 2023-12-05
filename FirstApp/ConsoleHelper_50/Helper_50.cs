@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ConsoleHelper_50
 {
@@ -48,6 +49,32 @@ namespace ConsoleHelper_50
             Console.ResetColor();
             return s;
         }
+        public static void TryFillYesOrNo(string question, out bool value)
+        {
+            var positiveReplies = new string[] { "yes", "да", "true" };
+            var negativeReplies = new string[] { "no", "нет", "false" };
+            value = false;
+            bool isCorrect;
+            do
+            {
+                isCorrect = false;
+                WriteLn(question, true);
+                string answer = ReadLn().ToLower();
+
+                if (positiveReplies.Contains(answer))
+                {
+                    isCorrect = true;
+                    value = true;
+                }
+                else if (negativeReplies.Contains(answer))
+                {
+                    isCorrect = true;
+                    value = false;
+                }
+                else
+                    WriteLn("Incorrect value!", ConsoleColor.Red);
+            } while (!isCorrect);
+        }
         public static void TryFillBool(string s, out bool value)
         {
             bool result;
@@ -59,35 +86,35 @@ namespace ConsoleHelper_50
                     WriteLn("Incorrect value!", ConsoleColor.Red);
             } while (!result);
         }
-        public static void TryFillByte(string s, out byte value)
+        public static void TryFillInt(string s, out int value, int minValue = int.MinValue)
         {
             bool result;
             do
             {
                 WriteLn(s, true);
-                result = byte.TryParse(ReadLn(), out value);
+                result = Int32.TryParse(ReadLn(), out value) && (value > minValue);
+                if (!result)
+                     WriteLn("Incorrect value!", ConsoleColor.Red);
+            } while (!result);
+        }
+        public static void TryFillByte(string s, out byte value, byte minValue = byte.MinValue)
+        {
+            bool result;
+            do
+            {
+                WriteLn(s, true);
+                result = byte.TryParse(ReadLn(), out value) && (value > minValue);
                 if (!result)
                     WriteLn("Incorrect value!", ConsoleColor.Red);
             } while (!result);
         }
-        public static void TryFillDouble(string s, out double value)
+        public static void TryFillDouble(string s, out double value, double minValue = double.MinValue)
         {
             bool result;
             do
             {
                 WriteLn(s, true);
                 result = double.TryParse(ReadLn(), out value);
-                if (!result)
-                    WriteLn("Incorrect value!", ConsoleColor.Red);
-            } while (!result);
-        }
-        public static void TryFillInt(string s, out int value)
-        {
-            bool result;
-            do
-            {
-                WriteLn(s, true);
-                result = Int32.TryParse(ReadLn(), out value);
                 if (!result)
                     WriteLn("Incorrect value!", ConsoleColor.Red);
             } while (!result);
