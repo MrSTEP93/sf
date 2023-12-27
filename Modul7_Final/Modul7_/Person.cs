@@ -8,9 +8,14 @@ namespace BazarMiniMarket
 {
     public abstract class Person
     {
-        public string Name;
-        public string Surname;
+        public string Name { get; protected set; }
+        public string Surname { get; protected set; }
         public string PhoneNumber;
+        public Person(string _name, string _surname)
+        {
+            Name = _name;
+            Surname = _surname;
+        }
     }
 
     public class Employee : Person
@@ -19,24 +24,72 @@ namespace BazarMiniMarket
         public string Position { get; private set; }
         public DateTime BirthDate { get; private set; }
         public DateTime EmploymentDate { get; private set; }
-        public Employee() : this("undef","undef") { }
 
-        public Employee(string _name, string _surname) : this(_name, _surname, "undef") {  }
+        public Employee(string _name, string _surname) : this(_name, _surname, "noNumber") {  }
 
         public Employee(string _name, string _surname, string _phoneNumber) : this(_name, _surname, _phoneNumber, new DateTime(2000,01,01)) { }
 
         public Employee(string _name, string _surname, string _phoneNumber, DateTime _birthDate)
             : this(_name, _surname, _phoneNumber, _birthDate, "сотрудник") { }
 
-        public Employee(string _name, string _surname, string _phoneNumber, DateTime _birthDate, string _position)
+        public Employee(string _name, string _surname, string _phoneNumber, DateTime _birthDate, string _position) : base(_name, _surname)
         {
-            Name = _name;
-            Surname = _surname;
             PhoneNumber = _phoneNumber;
             BirthDate = _birthDate;
             Position = _position;
             EmploymentDate = DateTime.Now;
             AllStaff.Add(this);
+        }
+
+
+        public Employee this[string _searchString]
+        {
+            get
+            {
+                var result = new List<Employee>();
+                foreach (var person in AllStaff.GetAllStaff())
+                {
+                    if ((person.Name.ToLower() == _searchString.ToLower()) || (person.Surname.ToLower() == _searchString.ToLower()))
+                    {
+                        //result.Add(person);
+                        return person;
+                    }
+                }
+                //return result; 
+                return null;
+            }
+        }
+        public Employee this[string _name, string _surname]
+        {
+            get
+            {
+                var result = new List<Employee>();
+                foreach (var person in AllStaff.GetAllStaff())
+                {
+                    if ((person.Name.ToLower() == _name.ToLower()) && (person.Surname.ToLower() == _surname.ToLower()))
+                    {
+                        //result.Add(person);
+                        return person;
+                    }
+                }
+                //return result; 
+                return null;
+            }
+        }
+        public List<Employee> this[DateTime _birthdate]
+        {
+            get
+            {
+                var result = new List<Employee>();
+                foreach (var person in AllStaff.GetAllStaff())
+                {
+                    if (person.BirthDate == _birthdate)
+                    {
+                        result.Add(person);
+                    }
+                }
+                return result;
+            }
         }
     }
 
@@ -48,9 +101,10 @@ namespace BazarMiniMarket
         {
             Staff = new();
         }
-        public static void Add(Employee employee)
+
+        public static void Add(Employee _employee)
         {
-            Staff.Add(employee);
+            Staff.Add(_employee);
             Count++;
         }
         public static List<Employee> GetAllStaff()
@@ -61,7 +115,10 @@ namespace BazarMiniMarket
 
     public class Customer : Person
     {
-        public string Rank;
-
+        public string Rank { get; private set; }
+        public Customer(string _name, string _surname) : base(_name, _surname)
+        {
+            Rank = "Новичок";
+        }
     }
 }
