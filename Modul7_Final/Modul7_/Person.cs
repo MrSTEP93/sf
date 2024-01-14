@@ -41,7 +41,6 @@ namespace BazarMiniMarket
             AllStaff.Add(this);
         }
 
-
         public Employee this[string _searchString]
         {
             get
