@@ -42,16 +42,7 @@ namespace BazarMiniMarket
         public static byte StoreCount { get; private set; }
         public CompanyStore()
         {
-
             StoreCount++;
-        }
-    }
-
-    public class CompanyStoreExtensions<T> where T: CompanyStore
-    {
-        public static void DefaultCompany()
-        {
-
         }
     }
 

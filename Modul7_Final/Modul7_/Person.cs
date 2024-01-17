@@ -45,16 +45,13 @@ namespace BazarMiniMarket
         {
             get
             {
-                var result = new List<Employee>();
                 foreach (var person in AllStaff.GetAllStaff())
                 {
                     if ((person.Name.ToLower() == _searchString.ToLower()) || (person.Surname.ToLower() == _searchString.ToLower()))
                     {
-                        //result.Add(person);
                         return person;
                     }
                 }
-                //return result; 
                 return null;
             }
         }
@@ -62,16 +59,13 @@ namespace BazarMiniMarket
         {
             get
             {
-                var result = new List<Employee>();
                 foreach (var person in AllStaff.GetAllStaff())
                 {
                     if ((person.Name.ToLower() == _name.ToLower()) && (person.Surname.ToLower() == _surname.ToLower()))
                     {
-                        //result.Add(person);
                         return person;
                     }
                 }
-                //return result; 
                 return null;
             }
         }
@@ -109,6 +103,13 @@ namespace BazarMiniMarket
         public static List<Employee> GetAllStaff()
         {
             return Staff;
+        }
+        public static void PrintAllStaff()
+        {
+            foreach (var person in Staff)
+            {
+                Console.WriteLine($"{person.Name}, {person.Surname},  {person.Position},  {person.PhoneNumber},  {person.BirthDate}");
+            }
         }
     }
 
