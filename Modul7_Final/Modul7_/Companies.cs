@@ -47,12 +47,4 @@ namespace BazarMiniMarket
         }
     }
 
-    public class CompanyStoreExtensions<T> where T: CompanyStore
-    {
-        public static void DefaultCompany()
-        {
-
-        }
-    }
-
 }
